@@ -1,52 +1,63 @@
-import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react'
-
+import FirstScreen from './FirstScreen';
 const HomeScreen = ({ navigation }) => {
     const [name, setName] = useState('');
     const [mobileNo, setmobileNo] = useState('')
     console.log(setName)
+    const img = 'https://reactnative.dev/img/tiny_logo.png'
     return (
-        <View>
+        <KeyboardAvoidingView>
+
             <View>
-                <Text style={{ textAlign: 'center', margin: 10, }}>HomeScreen</Text>
-                <View style={{ width: '50%', alignSelf: 'center', }}>
-                    <Button color="#000" title='Go to First Screen' onPress={() => navigation.navigate('FirstScreen')} />
+                <View>
+                    <Text style={{ textAlign: 'center', margin: 10, }}>HomeScreen</Text>
+                    <View style={{ width: '50%', alignSelf: 'center', }}>
+                        <Button color="#000" title='Go to First Screen' onPress={() => navigation.navigate('FirstScreen')} />
+                    </View>
                 </View>
-            </View>
-            <TextInput
-                style={styles.InputStyle}
-                placeholder='Enter Your Name'
-                onChangeText={setName}
-            />
-            <Text>name :{name}</Text>
-            <TextInput
-                style={styles.InputStyle}
-                placeholder='Enter the Mobile Number'
-                onChangeText={setmobileNo}
-                keyboardType='numeric'
-            />
 
-            <Text>Mobile number : {mobileNo}</Text>
+                <TextInput
+                    style={styles.InputStyle}
+                    placeholder='Enter Your Name'
+                    onChangeText={setName}
+                />
+                <Text style={{ textAlign: 'center' }}>name :{name}</Text>
 
-            <View style={styles.ImageWrapper}>
-                <Image style={styles.Image} source={require('../assets/images/image.jpg')} />
-                <TouchableOpacity onPress={() => Alert.alert('Submit')}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
-            </View>
+                <TextInput
+                    style={styles.InputStyle}
+                    placeholder='Enter the Mobile Number'
+                    onChangeText={setmobileNo}
+                    keyboardType='numeric'
+                />
 
-            <View style={styles.SubmitWrapper}>
-                <TouchableOpacity onPress={() => Alert.alert("Sbu")}>
-                    <Text style={{ textAlign: 'center', fontWeight: '600', color: '#000', }}>Click Here to submit</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.SubmitWrapper1}>
-                {/* <TouchableOpacity onPress={() => Alert.alert("Sbu")}>
+                <Text style={{ textAlign: 'center', marginBottom: 10, }}>Mobile number : {mobileNo}</Text>
+
+                <View style={styles.ImageWrapper}>
+                    <Image style={styles.Image} source={require('../assets/images/image.jpg')} />
+                    <TouchableOpacity onPress={() => Alert.alert('Image is pressed')}>
+                        <Image style={{ height: 50, width: 50, margin: 10, }} source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => Alert.alert('Submit Text is Pressed')}>
+                        <Text>Submit</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.SubmitWrapper}>
+                    <TouchableOpacity onPress={() => Alert.alert("Submit Button is Pressed")}>
+                        <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Click Here to submit</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.SubmitWrapper1}>
+                    {/* <TouchableOpacity onPress={() => Alert.alert("Sbu")}>
                     <Text>Click Here to submit</Text>
                 </TouchableOpacity> */}
-                <Button title='Hello' />
-            </View>
-        </View >
+                    <Button title='Hello' onPress={() => Alert.alert('Hello Button is Pressed')} />
+                </View >
+                <FirstScreen title="FirstScreen" navigation={() => navigation.navigate('SecondScreen')} />
+            </View >
+        </KeyboardAvoidingView>
+
     )
 }
 
