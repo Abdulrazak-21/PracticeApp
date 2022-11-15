@@ -54,7 +54,7 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity> */}
                     <Button title='Hello' onPress={() => Alert.alert('Hello Button is Pressed')} />
                 </View >
-                <FirstScreen title="FirstScreen" navigation={() => navigation.navigate('SecondScreen')} />
+
             </View >
         </KeyboardAvoidingView>
 
