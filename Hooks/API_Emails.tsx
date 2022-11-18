@@ -3,26 +3,30 @@ import axios from 'axios';
 
 
 const UseAPIEmails = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState('')
+    const [isloading, setisLoding] = useState(false)
+    const [error, setError] = useState('')
+    const URL = 'https://jsonplaceholder.typicode.com/photos';
 
-
-    function getData() {
+    function FetchDataFromAPI() {
+        setisLoding(true)
         axios
-            .get('https://jsonplaceholder.typicode.com/photos')
-            .then((response) => {
-                console.log(response.data.title);
-                console.log(response.data.body);
-                setData(response.data)
-
+            .get(URL)
+            .then(res => {
+                setData(res.data)
+                setisLoding(false)
             })
-
+            .catch(e => {
+                setisLoding(false);
+                setError(e);
+            });
     }
 
     useEffect(() => {
-        getData();
-    }, [])
+        FetchDataFromAPI();
+    }, []);
 
-    return { data }
+    return { data, isloading, error }
 }
 
 export default UseAPIEmails;
