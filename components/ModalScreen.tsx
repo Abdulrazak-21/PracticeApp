@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Text, View, Modal, StyleSheet } from 'react-native';
-
+import Feather from 'react-native-vector-icons/Feather'
 const ModalScreen = () => {
     const [ModalVisible, setModalVisible] = useState(false);
     return (
@@ -12,6 +12,7 @@ const ModalScreen = () => {
                 </View>
             </Modal>
             <Button title='Open Modal' onPress={() => setModalVisible(true)} />
+            <Feather style={{ marginTop: 5, }} name='bell' size={30} onPress={() => setModalVisible(true)} />
         </View>
     )
 }
