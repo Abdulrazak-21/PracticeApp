@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
                 <View>
                     <Text style={{ textAlign: 'center', margin: 10, }}>HomeScreen</Text>
                     <View style={{ width: '50%', alignSelf: 'center', }}>
-                        <Button color="#000" title='Go to First Screen' onPress={() => navigation.navigate('FirstScreen')} />
+                        <Button color="#000" title='Go to API Screen' onPress={() => navigation.navigate('API_Screen')} />
                     </View>
                 </View>
 

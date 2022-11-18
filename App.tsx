@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "./components/HomeScreen";
 import FirstScreen from "./components/FirstScreen";
 import SecondScreen from "./components/SecondScreen";
+import API_Screen from "./components/API_Screen";
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="FirstScreen" component={FirstScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SecondScreen" component={SecondScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="API_Screen" component={API_Screen} options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>
