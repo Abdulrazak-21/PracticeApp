@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
 import axios from 'axios';
 
 
@@ -23,14 +22,6 @@ const UseAPIEmails = () => {
         getData();
     }, [])
 
-    // return (
-    //     <View>
-    //         {/* <Text> This is title</Text> */}
-    //         <Text>{data.title}</Text>
-    //         <Text>{data.body}</Text>
-
-    //     </View>
-    // )
     return { data }
 }
 

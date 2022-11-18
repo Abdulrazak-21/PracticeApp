@@ -7,8 +7,8 @@ const API_Screen = () => {
     const renderItemsAPI = ({ item }) => {
         return (
             <View>
-                <Text>{item.id}</Text>
-                <Text>{item.title}</Text>
+                <Text style={{ fontSize: 20, }}>{item.id}</Text>
+                <Text style={{ fontSize: 20, }}>{item.title}</Text>
                 <Text>{item.body}</Text>
 
             </View>
@@ -22,7 +22,7 @@ const API_Screen = () => {
             {/* <Text>{data.title}</Text>
             <Text>{data.body}</Text> */}
             <FlatList
-                data={data.slice(0, 5)}
+                data={data.slice(0, 10)}
                 renderItem={renderItemsAPI}
                 keyExtractor={item => item.id}
             />
