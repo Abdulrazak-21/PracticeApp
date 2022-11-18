@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator } from 'react-native'
 import React from 'react'
 import UseAPIEmails from '../Hooks/API_Emails'
 
@@ -16,7 +16,11 @@ const API_Screen = () => {
         )
     }
     if (isloading) {
-        return <Text>It is Loading</Text>
+        return (
+            <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </View>
+        )
     }
     return (
         <View>
