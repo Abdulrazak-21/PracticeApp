@@ -9,13 +9,14 @@ const UseAPIEmails = () => {
 
     function getData() {
         axios
-            .get('https://jsonplaceholder.typicode.com/posts/2')
+            .get('https://jsonplaceholder.typicode.com/posts')
             .then((response) => {
                 console.log(response.data.title);
                 console.log(response.data.body);
                 setData(response.data)
 
-            });
+            })
+
     }
 
     useEffect(() => {
