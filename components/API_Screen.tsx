@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Button } from 'react-native'
 import React from 'react'
 import UseAPIEmails from '../Hooks/API_Emails'
-
+import ModalScreen from './ModalScreen'
 const API_Screen = () => {
     const { data, isloading, error } = UseAPIEmails();
     const renderItemsAPI = ({ item }) => {
@@ -28,6 +28,7 @@ const API_Screen = () => {
     return (
         <View>
             <Text>API_Screen</Text>
+            <ModalScreen />
             {/* <Text>{data}</Text> */}
             {/* <UseAPIEmails /> */}
             {/* <Text>{data.title}</Text>
