@@ -8,7 +8,7 @@ const UseAPIEmails = () => {
 
     function getData() {
         axios
-            .get('https://jsonplaceholder.typicode.com/posts')
+            .get('https://jsonplaceholder.typicode.com/photos')
             .then((response) => {
                 console.log(response.data.title);
                 console.log(response.data.body);
