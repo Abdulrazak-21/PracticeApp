@@ -15,6 +15,9 @@ const API_Screen = () => {
             </View>
         )
     }
+    if (error) {
+        console.log(error)
+    }
     if (isloading) {
         return (
             <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
@@ -31,7 +34,7 @@ const API_Screen = () => {
             <Text>{data.body}</Text> */}
 
             <FlatList
-                data={data.slice(0, 25)}
+                data={data.slice(0, 24)}
                 renderItem={renderItemsAPI}
                 keyExtractor={item => item.id}
                 // horizontal={true}
