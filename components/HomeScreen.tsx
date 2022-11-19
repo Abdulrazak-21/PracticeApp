@@ -15,6 +15,8 @@ const HomeScreen = ({ navigation }) => {
                     <View style={{ alignItems: 'center', }}>
                         <Button color="#000" title='Go to API Screen' onPress={() => navigation.navigate('API_Screen')} />
                         <Button color="#000" title='Go to Counter Screen' onPress={() => navigation.navigate('Counter_Screen')} />
+                        <Button color="#000" title='Go to Spotify Screen' onPress={() => navigation.navigate('Spotify_Screen')} />
+
                     </View>
                 </View>
 

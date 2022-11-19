@@ -7,6 +7,7 @@ import FirstScreen from "./components/FirstScreen";
 import SecondScreen from "./components/SecondScreen";
 import API_Screen from "./components/API_Screen";
 import CounterScreen from "./components/CounterScreen";
+import Spotify from "./components/Spotify";
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Stack.Screen name="SecondScreen" component={SecondScreen} options={{ headerShown: false }} />
         <Stack.Screen name="API_Screen" component={API_Screen} options={{ headerShown: false }} />
         <Stack.Screen name="Counter_Screen" component={CounterScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Spotify_Screen" component={Spotify} options={{ headerShown: false }} />
 
 
       </Stack.Navigator>

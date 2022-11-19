@@ -3,10 +3,10 @@ import axios from 'axios';
 
 
 const UseAPIEmails = () => {
-    const [data, setData] = useState('')
+    const [data1, setData] = useState('')
     const [isloading, setisLoding] = useState(false)
     const [error, setError] = useState('')
-    const URL = 'https://jsonplaceholder.typicode.com/photos';
+    const URL = 'https://jsonplaceholder.typicode.com/posts';
 
     function FetchDataFromAPI() {
         setisLoding(true)
@@ -26,7 +26,7 @@ const UseAPIEmails = () => {
         FetchDataFromAPI();
     }, []);
 
-    return { data, isloading, error }
+    return { data1, isloading, error }
 }
 
 export default UseAPIEmails;
