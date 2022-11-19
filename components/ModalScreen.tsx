@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Button, Text, View, Modal, StyleSheet } from 'react-native';
+import { Button, Text, View, Modal, StyleSheet, Image } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather'
 const ModalScreen = () => {
     const [ModalVisible, setModalVisible] = useState(false);
     return (
         <View style={styles.modalView}>
             <Modal visible={ModalVisible} animationType="slide" transparent={true}>
-                <View style={styles.modalView}>
+                <View style={styles.modalView1}>
                     <Text style={{ marginBottom: 5, }}>This is Modal Screen</Text>
+                    <Image style={{ height: 50, width: 50, }} source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }} />
                     <Button title='Close Modal' onPress={() => setModalVisible(false)} />
+
                 </View>
             </Modal>
             <Button title='Open Modal' onPress={() => setModalVisible(true)} />
@@ -24,6 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     modalView: {
+
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
@@ -38,6 +41,25 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
     },
+    modalView1: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        alignContent: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+
 })
 
 export default ModalScreen;
