@@ -1,15 +1,19 @@
-import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image, TouchableOpacity, Dimensions } from 'react-native'
 import React from 'react'
 import Feather from 'react-native-vector-icons/Feather'
 import UseAPISpotify from '../Hooks/API_Spotify'
 import UseAPIEmails from '../Hooks/API_Emails'
+
+export const SCREEN_WIDTH = Dimensions.get('window').width
+export const SCREEN_HEIGHT = Dimensions.get('window').height
+
 const Spotify = ({ navigation }) => {
     const { data } = UseAPISpotify();
     const { data1 } = UseAPIEmails();
     const renderTrendingScreen = ({ item }) => {
         return (
             <View style={styles.TrendingData}>
-                <Image style={{ height: 200, width: 150, borderRadius: 10, }} source={{ uri: item.url }} />
+                <Image style={{ height: SCREEN_WIDTH / 2.5, width: SCREEN_WIDTH / 2.5, borderRadius: 10, marginLeft: item.id == 1 ? 5 : 0 }} source={{ uri: item.url }} />
                 <Text style={{ textAlign: 'center', color: '#000', fontSize: 15 }}>{item.id}</Text>
             </View>
         )
@@ -57,7 +61,7 @@ const Spotify = ({ navigation }) => {
             <View>
                 <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Information</Text>
                 <FlatList
-                    data={data1.slice(0, 50)}
+                    data={data1.slice(0, 10)}
                     renderItem={renderEmailScreen}
                     keyExtractor={(item) => item.id}
                 />

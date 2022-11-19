@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
 
             <View>
                 <View>
-                    <Text style={{ textAlign: 'center', margin: 10, }}>HomeScreen</Text>
+                    <Text style={{ textAlign: 'center', margin: 10, color: '#000' }}>HomeScreen</Text>
                     <View style={{ alignItems: 'center', }}>
                         <Button color="#000" title='Go to API Screen' onPress={() => navigation.navigate('API_Screen')} />
                         <Button color="#000" title='Go to Counter Screen' onPress={() => navigation.navigate('Counter_Screen')} />
@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
                     placeholder='Enter Your Name'
                     onChangeText={setName}
                 />
-                <Text style={{ textAlign: 'center' }}>name :{name}</Text>
+                <Text style={{ textAlign: 'center', color: '#000' }}>name :{name}</Text>
 
                 <TextInput
                     style={styles.InputStyle}
@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
                     keyboardType='numeric'
                 />
 
-                <Text style={{ textAlign: 'center', marginBottom: 10, }}>Mobile number : {mobileNo}</Text>
+                <Text style={{ textAlign: 'center', marginBottom: 10, color: '#000' }}>Mobile number : {mobileNo}</Text>
 
                 <View style={styles.ImageWrapper}>
                     <Image style={styles.Image} source={require('../assets/images/image.jpg')} />

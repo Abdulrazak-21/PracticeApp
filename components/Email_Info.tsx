@@ -1,15 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, InteractionManager } from 'react-native';
 import React from 'react'
+import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 const Email_Info = ({ route }) => {
     // //const { route } = props;
     const { params } = route;
     const { item1 } = params;
-    const { title, body, } = item1;
+    const { title, body } = item1;
     return (
-        <View>
-            <Text style={{ fontSize: 25, }}>{title}</Text>
-            <Text style={{ fontSize: 15, }}>{body}</Text>
+        <View style={{ margin: 15, }}>
+            <Text style={{ fontSize: 25, color: '#000' }}>{title}</Text>
+            <Text style={{ fontSize: 15, color: '#000' }}>{body}</Text>
 
         </View>
     )

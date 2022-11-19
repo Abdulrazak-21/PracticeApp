@@ -12,7 +12,7 @@ const UseAPIEmails = () => {
     function FetchDataFromAPI() {
         setisLoding(true)
         axios
-            .get(URL_PHOTOS)
+            .get(URL_EMAILS)
             .then(res => {
                 setData(res.data)
                 setisLoding(false)

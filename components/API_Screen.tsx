@@ -1,15 +1,20 @@
-import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Button } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Button, Dimensions } from 'react-native'
 import React from 'react'
-import UseAPIEmails from '../Hooks/API_Emails'
 import ModalScreen from './ModalScreen'
+import UseAPISpotify from '../Hooks/API_Spotify'
+
+export const SCREEN_WIDTH = Dimensions.get('window').width
+export const SCREEN_HEIGHT = Dimensions.get('window').height
+
+
 const API_Screen = () => {
-    const { data1, isloading, error } = UseAPIEmails();
+    const { data, isloading, error } = UseAPISpotify();
     const renderItemsAPI = ({ item }) => {
         return (
-            <View>
+            <View style={{}}>
                 {/* <Text style={{ fontSize: 25, }}>{item.id}</Text> */}
                 {/* <Text style={{ fontSize: 10, }}>{item.url}</Text> */}
-                <Image style={{ height: 140, width: 140, margin: 2, }} source={{ uri: item.url }} />
+                <Image style={{ height: SCREEN_WIDTH / 3.5, width: SCREEN_WIDTH / 3.5, margin: 2, }} source={{ uri: item.url }} />
                 {/* <Image style={{ height: 25, width: 25 }} source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }} /> */}
 
             </View>
@@ -27,20 +32,22 @@ const API_Screen = () => {
     }
     return (
         <View>
-            <Text>API_Screen</Text>
+            <Text style={{ color: '#000' }}>API_Screen</Text>
             <ModalScreen />
             {/* <Text>{data}</Text> */}
             {/* <UseAPIEmails /> */}
             {/* <Text>{data.title}</Text>
             <Text>{data.body}</Text> */}
+            <View style={{ borderWidth: 1, padding: 5, height: SCREEN_WIDTH * 1.5, width: SCREEN_WIDTH, alignItems: 'center' }}>
+                <FlatList
+                    data={data.slice(0, 50)}
+                    renderItem={renderItemsAPI}
+                    keyExtractor={item => item.id}
+                    // horizontal={true}
+                    numColumns={3}
+                />
+            </View>
 
-            <FlatList
-                data={data1.slice(0, 24)}
-                renderItem={renderItemsAPI}
-                keyExtractor={item => item.id}
-                // horizontal={true}
-                numColumns={3}
-            />
 
         </View>
     )
