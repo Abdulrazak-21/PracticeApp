@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image } from 'react-native'
+import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Feather from 'react-native-vector-icons/Feather'
 import UseAPISpotify from '../Hooks/API_Spotify'
 import UseAPIEmails from '../Hooks/API_Emails'
-const Spotify = () => {
+const Spotify = ({ navigation }) => {
     const { data } = UseAPISpotify();
     const { data1 } = UseAPIEmails();
     const renderTrendingScreen = ({ item }) => {
@@ -18,7 +18,9 @@ const Spotify = () => {
         return (
             <View >
                 <View style={styles.EmailWrapper}>
-                    <Text style={{ fontSize: 20, color: '#000' }}>{item.title}</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('EmailInfo_Screen', { item1: item })}>
+                        <Text style={{ fontSize: 20, color: '#000' }}>{item.title}</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
