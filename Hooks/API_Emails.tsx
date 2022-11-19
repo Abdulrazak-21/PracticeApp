@@ -6,12 +6,13 @@ const UseAPIEmails = () => {
     const [data1, setData] = useState('')
     const [isloading, setisLoding] = useState(false)
     const [error, setError] = useState('')
-    const URL = 'https://jsonplaceholder.typicode.com/posts';
+    const URL_EMAILS = 'https://jsonplaceholder.typicode.com/posts';
+    const URL_PHOTOS = 'https://jsonplaceholder.typicode.com/photos'
 
     function FetchDataFromAPI() {
         setisLoding(true)
         axios
-            .get(URL)
+            .get(URL_PHOTOS)
             .then(res => {
                 setData(res.data)
                 setisLoding(false)

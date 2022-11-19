@@ -3,7 +3,7 @@ import React from 'react'
 import UseAPIEmails from '../Hooks/API_Emails'
 import ModalScreen from './ModalScreen'
 const API_Screen = () => {
-    const { data, isloading, error } = UseAPIEmails();
+    const { data1, isloading, error } = UseAPIEmails();
     const renderItemsAPI = ({ item }) => {
         return (
             <View>
@@ -35,7 +35,7 @@ const API_Screen = () => {
             <Text>{data.body}</Text> */}
 
             <FlatList
-                data={data.slice(0, 24)}
+                data={data1.slice(0, 24)}
                 renderItem={renderItemsAPI}
                 keyExtractor={item => item.id}
                 // horizontal={true}
