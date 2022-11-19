@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react'
-import FirstScreen from './FirstScreen';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from './API_Screen';
 const HomeScreen = ({ navigation }) => {
     const [name, setName] = useState('');
     const [mobileNo, setmobileNo] = useState('')
@@ -8,21 +8,32 @@ const HomeScreen = ({ navigation }) => {
     const img = 'https://reactnative.dev/img/tiny_logo.png'
     return (
         <KeyboardAvoidingView>
-
             <View>
                 <View>
                     <Text style={{ textAlign: 'center', margin: 10, color: '#000' }}>HomeScreen</Text>
-                    <View style={{ alignItems: 'center', }}>
-                        <Button color="#000" title='Go to API Screen' onPress={() => navigation.navigate('API_Screen')} />
-                        <Button color="#000" title='Go to Counter Screen' onPress={() => navigation.navigate('Counter_Screen')} />
-                        <Button color="#000" title='Go to Spotify Screen' onPress={() => navigation.navigate('Spotify_Screen')} />
-
+                    <View >
+                        <View style={styles.ButtonWrapper}>
+                            <TouchableOpacity onPress={() => navigation.navigate('API_Screen')}>
+                                <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to API Screen</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.ButtonWrapper}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Counter_Screen')}>
+                                <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to Counter Screen</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.ButtonWrapper}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Spotify_Screen')}>
+                                <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to Spotify Screen</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
 
                 <TextInput
                     style={styles.InputStyle}
                     placeholder='Enter Your Name'
+                    placeholderTextColor='#000'
                     onChangeText={setName}
                 />
                 <Text style={{ textAlign: 'center', color: '#000' }}>name :{name}</Text>
@@ -30,6 +41,7 @@ const HomeScreen = ({ navigation }) => {
                 <TextInput
                     style={styles.InputStyle}
                     placeholder='Enter the Mobile Number'
+                    placeholderTextColor='#000'
                     onChangeText={setmobileNo}
                     keyboardType='numeric'
                 />
@@ -46,17 +58,12 @@ const HomeScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.SubmitWrapper}>
+                <View style={styles.ButtonWrapper}>
                     <TouchableOpacity onPress={() => Alert.alert("Submit Button is Pressed")}>
                         <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Click Here to submit</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.SubmitWrapper1}>
-                    {/* <TouchableOpacity onPress={() => Alert.alert("Sbu")}>
-                    <Text>Click Here to submit</Text>
-                </TouchableOpacity> */}
-                    <Button title='Hello' onPress={() => Alert.alert('Hello Button is Pressed')} />
-                </View >
+
 
             </View >
         </KeyboardAvoidingView>
@@ -82,8 +89,8 @@ const styles = StyleSheet.create({
     ImageWrapper: {
         alignItems: 'center',
     },
-    SubmitWrapper: {
-        width: '50%',
+    ButtonWrapper: {
+        width: SCREEN_WIDTH / 2,
         height: 50,
         margin: 10,
         backgroundColor: '#6699ff',
@@ -91,10 +98,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center',
 
-    },
-    SubmitWrapper1: {
-        alignSelf: 'center',
-        width: '30%'
     },
 
 })
