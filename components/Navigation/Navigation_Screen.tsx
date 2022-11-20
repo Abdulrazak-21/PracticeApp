@@ -2,11 +2,15 @@ import React from "react";
 import { View, Text, Button, StyleSheet, Image } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 import HomeScreen from "../HomeScreen";
 import API_Screen from "../API_Screen";
 import CounterScreen from "../CounterScreen";
 import Spotify from "../Spotify";
 import Email_Info from "../Email_Info";
+
+
 const Stack = createNativeStackNavigator();
 
 const NavigationScreen = () => {

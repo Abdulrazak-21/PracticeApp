@@ -11,6 +11,7 @@ const Email_Info = ({ route }) => {
         <View style={{ margin: 15, }}>
             <Text style={{ fontSize: 25, color: '#000' }}>{title}</Text>
             <Text style={{ fontSize: 15, color: '#000' }}>{body}</Text>
+            <Text style={{ fontSize: 15, color: '#000' }}>{item1.id}</Text>
 
         </View>
     )

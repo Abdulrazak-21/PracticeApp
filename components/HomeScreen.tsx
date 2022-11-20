@@ -27,6 +27,7 @@ const HomeScreen = ({ navigation }) => {
                                 <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to Spotify Screen</Text>
                             </TouchableOpacity>
                         </View>
+
                     </View>
                 </View>
 

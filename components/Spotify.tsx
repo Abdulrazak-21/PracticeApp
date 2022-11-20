@@ -1,14 +1,32 @@
-import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image, TouchableOpacity, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Alert, FlatList, InteractionManager, Image, TouchableOpacity, ScrollView, Dimensions, ActivityIndicator } from 'react-native'
 import React from 'react'
 import Feather from 'react-native-vector-icons/Feather'
+import { FloatingAction } from "react-native-floating-action";
+
 import UseAPISpotify from '../Hooks/API_Spotify'
 import UseAPIEmails from '../Hooks/API_Emails'
 
 export const SCREEN_WIDTH = Dimensions.get('window').width
 export const SCREEN_HEIGHT = Dimensions.get('window').height
 
+
+const actions = [
+    {
+        text: "Accessibility",
+        icon: <Feather name='bell' />,
+        name: "bt_accessibility",
+        position: 2
+    },
+    {
+        text: "Language",
+        icon: <Feather name='move' />,
+        name: "bt_language",
+        position: 1
+    },
+];
+
 const Spotify = ({ navigation }) => {
-    const { data } = UseAPISpotify();
+    const { data, isloading, error } = UseAPISpotify();
     const { data1 } = UseAPIEmails();
     const renderTrendingScreen = ({ item }) => {
         return (
@@ -29,43 +47,65 @@ const Spotify = ({ navigation }) => {
             </View>
         )
     }
+    if (isloading) {
+        return (
+            <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </View>
+        )
+    }
+    if (error) {
+        console.log(error)
+    }
+
     return (
         <View style={styles.Container}>
-            {/* Header For APP */}
-            <View style={styles.HeaderContainer}>
-                <View >
-                    <Text style={styles.HeaderText}>My App</Text>
+            <ScrollView>
+                {/* Header For APP */}
+                <View style={styles.HeaderContainer}>
+                    <View >
+                        <Text style={styles.HeaderText}>My App</Text>
+                    </View>
+                    <View style={styles.HeaderIconWrapper}>
+                        <Feather style={styles.HeaderIcons} onPress={() => (Alert.alert("Header Is pressed"))} name='chrome' color='#000' size={40} />
+                        <Feather style={styles.HeaderIcons} name='bell' color='#000' size={40} />
+                    </View>
                 </View>
-                <View style={styles.HeaderIconWrapper}>
-                    <Feather style={styles.HeaderIcons} onPress={() => (Alert.alert("Header Is pressed"))} name='chrome' color='#000' size={40} />
-                    <Feather style={styles.HeaderIcons} name='bell' color='#000' size={40} />
-                </View>
-            </View>
 
-            {/* Trending Screen */}
-            <View>
-                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Trending</Text>
-
+                {/* Trending Screen */}
                 <View>
-                    <FlatList
-                        data={data.slice(0, 10)}
-                        renderItem={renderTrendingScreen}
-                        keyExtractor={item => item.id}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-            </View>
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Trending</Text>
 
-            {/* Listen Now */}
-            <View>
-                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Information</Text>
-                <FlatList
-                    data={data1.slice(0, 10)}
-                    renderItem={renderEmailScreen}
-                    keyExtractor={(item) => item.id}
+                    <View>
+                        <FlatList
+                            data={data.slice(0, 10)}
+                            renderItem={renderTrendingScreen}
+                            keyExtractor={item => item.id}
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                        />
+                    </View>
+                </View>
+
+                {/* Listen Now */}
+                <View>
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Information</Text>
+                    <View style={{ height: SCREEN_HEIGHT / 2, borderWidth: 2, margin: 10, padding: 2, }}>
+                        <FlatList
+                            data={data1.slice(0, 50)}
+                            renderItem={renderEmailScreen}
+                            keyExtractor={(item) => item.id}
+                        />
+                    </View>
+                </View>
+
+                <FloatingAction
+                    actions={actions}
+                    onPressItem={() => navigation.navigate('Home')}
                 />
-            </View>
+
+
+            </ScrollView>
         </View>
     )
 }
