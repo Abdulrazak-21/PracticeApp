@@ -9,7 +9,7 @@ import API_Screen from "../API_Screen";
 import CounterScreen from "../CounterScreen";
 import Spotify from "../Spotify";
 import Email_Info from "../Email_Info";
-
+import NewScreen from "../NewScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +22,8 @@ const NavigationScreen = () => {
                 <Stack.Screen name="Counter_Screen" component={CounterScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="Spotify_Screen" component={Spotify} options={{ headerShown: false }} />
                 <Stack.Screen name="EmailInfo_Screen" component={Email_Info} options={{ headerShown: false }} />
+                <Stack.Screen name="New_Screen" component={NewScreen} options={{ headerShown: false }} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Button, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Dimensions } from 'react-native'
 import React from 'react'
 import ModalScreen from './ModalScreen'
 import UseAPISpotify from '../Hooks/API_Spotify'

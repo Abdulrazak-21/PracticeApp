@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     TrendingData: {
-        margin: 3,
+        margin: 5,
     },
     EmailWrapper: {
         borderWidth: 1,
