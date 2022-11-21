@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, InteractionManager } from 'react-native';
 import React from 'react'
-import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 const Email_Info = ({ route }) => {
     // //const { route } = props;
