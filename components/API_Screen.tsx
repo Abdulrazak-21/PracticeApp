@@ -38,7 +38,7 @@ const API_Screen = () => {
             {/* <UseAPIEmails /> */}
             {/* <Text>{data.title}</Text>
             <Text>{data.body}</Text> */}
-            <View style={{ borderWidth: 1, padding: 5, height: SCREEN_WIDTH * 1.2, width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', bottom: 100, top: 20, }}>
+            <View style={{ borderWidth: 1, padding: 5, height: SCREEN_WIDTH * 1.2, width: SCREEN_WIDTH / 1.1, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', bottom: 100, top: 20, }}>
                 <FlatList
                     data={data.slice(0, 30)}
                     renderItem={renderItemsAPI}
