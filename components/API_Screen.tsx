@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, Dimensions, ScrollView } from 'react-native'
 import React from 'react'
 import ModalScreen from './ModalScreen'
 import UseAPISpotify from '../Hooks/API_Spotify'
@@ -38,16 +38,15 @@ const API_Screen = () => {
             {/* <UseAPIEmails /> */}
             {/* <Text>{data.title}</Text>
             <Text>{data.body}</Text> */}
-            <View style={{ borderWidth: 1, padding: 5, height: SCREEN_WIDTH * 1.5, width: SCREEN_WIDTH, alignItems: 'center' }}>
+            <View style={{ borderWidth: 1, padding: 5, height: SCREEN_WIDTH * 1.2, width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', bottom: 100, top: 20, }}>
                 <FlatList
-                    data={data.slice(0, 50)}
+                    data={data.slice(0, 30)}
                     renderItem={renderItemsAPI}
                     keyExtractor={item => item.id}
                     // horizontal={true}
                     numColumns={3}
                 />
             </View>
-
 
         </View>
     )
