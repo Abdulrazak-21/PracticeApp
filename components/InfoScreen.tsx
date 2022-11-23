@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React from 'react'
-import UseAPITodo from '../Hooks/API_TODO';
+import UseAPITodo from '../Hooks/API_Airlines';
 
 
 const InfoScreen = ({ route }) => {

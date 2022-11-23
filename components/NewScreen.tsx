@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity, TextInput, FlatList, ActivityIndicator, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import UseAPIAirlines from '../Hooks/API_TODO';
+import UseAPIAirlines from '../Hooks/API_Airlines';
 import NewModalScreen from './NewModalScreen'
 import { SCREEN_WIDTH } from './Spotify';
 
@@ -18,19 +18,15 @@ const NewScreen = ({ navigation }) => {
 
 
     const renderTodoList = ({ item }) => {
-        if (item.id == search)
+        if (item.country == search)
             return (
-                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-around', marginTop: 10, }}>
+                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-around', marginTop: 10, marginRight: 10, }}>
                     <Image style={{ height: 100, width: 100, borderRadius: 10, borderWidth: 1, borderColor: '#000', resizeMode: 'contain' }} source={{ uri: item.logo }} />
                     <Text style={{ textAlign: 'center', alignSelf: 'center', color: '#000' }}>{item.country}{'. '}{item.name}</Text>
 
                 </View>
             )
-        else {
-            <View>
-                <Text>No result</Text>
-            </View>
-        }
+
     }
     if (isloding) {
         return (

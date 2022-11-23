@@ -41,7 +41,7 @@ const Spotify = ({ navigation }) => {
             <View >
                 <View style={styles.EmailWrapper}>
                     <TouchableOpacity onPress={() => navigation.navigate('EmailInfo_Screen', { item1: item })}>
-                        <Text style={{ fontSize: 20, color: '#000' }}>{item.title}</Text>
+                        <Text style={{ fontSize: 15, color: '#000' }}>{item.title}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -90,7 +90,8 @@ const Spotify = ({ navigation }) => {
                 {/* Listen Now */}
                 <View>
                     <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#000', margin: 5, }}>Information</Text>
-                    <View style={{ height: SCREEN_HEIGHT / 2, borderWidth: 2, margin: 10, padding: 2, }}>
+                    <View style={{ borderWidth: 2, padding: 5, height: SCREEN_WIDTH, width: SCREEN_WIDTH / 1.1, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', }}>
+                        {/* <View style={{ height: SCREEN_HEIGHT / 2, borderWidth: 2, margin: 10, padding: 2, }}> */}
                         <FlatList
                             data={data1.slice(0, 50)}
                             renderItem={renderEmailScreen}
@@ -103,8 +104,6 @@ const Spotify = ({ navigation }) => {
                     actions={actions}
                     onPressItem={() => navigation.navigate('Home')}
                 />
-
-
             </ScrollView>
         </View>
     )
