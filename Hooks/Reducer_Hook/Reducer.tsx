@@ -1,5 +1,9 @@
-
-const reducer = (state, action) => {
+export const initialState = {
+    loading: true,
+    error: '',
+    post: []
+}
+export const reducer = (state, action) => {
     switch (action.type) {
         case 'FETCH_SUCCESS':
             return {
@@ -11,11 +15,9 @@ const reducer = (state, action) => {
             return {
                 loading: false,
                 post: [],
-                error: 'Something went wrong'
+                error: action.error,
             }
         default:
             return state;
     }
 }
-
-export default reducer;
