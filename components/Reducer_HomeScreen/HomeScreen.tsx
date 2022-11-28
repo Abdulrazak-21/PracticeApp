@@ -1,48 +1,22 @@
-import { StyleSheet, Text, View, FlatList, TextInput, Image, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TextInput, Image, Button, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
-import fetchDatafromAPI from '../../Hooks/Reducer_Hook/UseAPI';
 
 
-const HomeScreen = () => {
-    const { state } = fetchDatafromAPI();
+const HomeScreen = ({ navigation }) => {
     const [search, setSearch] = useState('')
-    const renderItemAPI = ({ item }) => {
-        if (item.title.includes(search)) {
-            return (
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', margin: 10, }}>
-                    <Text style={{ textAlign: 'center', color: '#000', alignSelf: 'center' }}>{item.id}</Text>
-                    <Image style={{ height: 100, width: 100 }} source={{ uri: item.url }} />
-                </View>
-            )
-        }
-    }
-    if (state.loading) {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <ActivityIndicator size="large" color="#00ff00" />
-            </View>
 
-        )
-    }
-    if (state.error) {
-        console.log(state.post.error)
-    }
     return (
-        <View>
+        <View style={{ alignContent: 'center', justifyContent: 'center', flex: 1, }}>
 
             <View>
                 <TextInput
                     style={{ borderWidth: 2, margin: 10, borderRadius: 10, }}
-                    placeholder='Enter'
+                    placeholder='Enter id'
                     onChangeText={(text) => { setSearch(text) }}
                 />
             </View>
-            <View style={{ borderWidth: 2, height: '80%', width: '80%', alignSelf: 'center' }}>
-                <FlatList
-                    data={state.post.slice(0, 100)}
-                    renderItem={renderItemAPI}
-                    keyExtractor={item => item.id}
-                />
+            <View style={{ alignItems: 'center' }}>
+                <Button title='Search' onPress={() => navigation.navigate('Reducer_InfoScreen', { searchItem: search })} />
             </View>
         </View>
     )

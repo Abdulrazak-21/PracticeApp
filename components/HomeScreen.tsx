@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from './API_Screen';
-const HomeScreen = ({ navigation }) => {
+const HomeScreen1 = ({ navigation }) => {
     const [name, setName] = useState('');
     const [mobileNo, setmobileNo] = useState('')
     console.log(setName)
@@ -30,6 +30,11 @@ const HomeScreen = ({ navigation }) => {
                         <View style={styles.ButtonWrapper}>
                             <TouchableOpacity onPress={() => navigation.navigate('New_Screen')}>
                                 <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to New Screen</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.ButtonWrapper}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Reducer_HomeScreen')}>
+                                <Text style={{ textAlign: 'center', fontWeight: '600', color: '#fff', }}>Go to Reducer HomeScreen</Text>
                             </TouchableOpacity>
                         </View>
 
@@ -77,7 +82,7 @@ const HomeScreen = ({ navigation }) => {
     )
 }
 
-export default HomeScreen
+export default HomeScreen1
 
 const styles = StyleSheet.create({
     InputStyle: {
